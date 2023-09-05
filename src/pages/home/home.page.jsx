@@ -1,6 +1,8 @@
 import React from 'react';
 import './home.styles.scss';
 import Button from '../../components/button/button.component';
+import posts from '../../constants/postsData';
+import BlogCard from '../../components/blog-card/blog-card.component';
 
 function Home() {
     return (
@@ -12,12 +14,20 @@ function Home() {
                     <Button 
                         buttonText='Create New Post' 
                         type='button' 
-                        buttonType='inverted'
                     />
                 </div>
             </div>
 
-            <div className="popular-posts-container"></div>
+            <div className="popular-posts-container">
+                {posts.slice(0, 6).map(post => {
+                    return (
+                        <BlogCard 
+                            key={post.id} 
+                            {...post} 
+                        />
+                    )
+                })}
+            </div>
         </div>
     )
 }

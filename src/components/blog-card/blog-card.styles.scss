@@ -1,0 +1,20 @@
+.blog-card-container {
+    background-color: var(--pale-dark);
+    color: var(--creme);
+    border-radius: 0.25rem;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+
+    .blog-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+    }
+
+    .blog-content {
+        font-size: 1rem;
+        font-weight: 300;
+    }
+}
