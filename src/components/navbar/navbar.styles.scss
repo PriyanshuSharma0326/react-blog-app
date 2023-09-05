@@ -1,0 +1,28 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dark);
+    color: var(--creme);
+    height: 4.5rem;
+    padding: 0 4rem;
+    box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
+    position: fixed;
+    width: 100%;
+
+    .navbar-title {
+        > .navbar-link {
+            font-size: 1.1rem;
+        }
+    }
+
+    .navbar-link {
+        font-size: 1rem;
+        list-style: none;
+    }
+
+    .navbar-links {
+        display: flex;
+        gap: 2rem;
+    }
+}

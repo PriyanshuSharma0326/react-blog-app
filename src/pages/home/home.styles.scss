@@ -1,0 +1,17 @@
+.homepage-container {
+    padding: 3rem 4rem;
+    background-color: var(--dark);
+    color: white;
+    height: 100vh;
+
+    .home-head {
+        margin-top: 4.5rem;
+        display: flex;
+        justify-content: space-between;
+
+        .home-title {
+            font-size: 1rem;
+            color: var(--creme);
+        }
+    }
+}
