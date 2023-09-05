@@ -1,7 +1,7 @@
 .homepage-container {
     padding: 3rem 4rem;
     background-color: var(--dark);
-    color: white;
+    color: var(--creme);
     height: 100vh;
 
     .home-head {
@@ -11,7 +11,8 @@
 
         .home-title {
             font-size: 1rem;
-            color: var(--creme);
         }
     }
+
+    .popular-posts-container {}
 }

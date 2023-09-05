@@ -2,6 +2,7 @@ import React from "react";
 import Root from "./routes/root/root.route";
 import { Route, Routes } from "react-router-dom";
 import SharedLayout from "./routes/shared-layout/shared-layout";
+import Auth from "./routes/auth/auth.route";
 
 export default function App() {
     return (
@@ -9,7 +10,7 @@ export default function App() {
             <Route path='/' element={<SharedLayout />}>
                 <Route index element={<Root />} />
 
-                <Route path='login' element={<>Login here</>} />
+                <Route path='login' element={<Auth />} />
             </Route>
         </Routes>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.styles.scss';
-import { Button } from '../../constants';
+import Button from '../../components/button/button.component';
 
 function Home() {
     return (

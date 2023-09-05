@@ -1,0 +1,22 @@
+.login-page-container {
+    background-color: var(--dark);
+    color: var(--creme);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+
+    .login-page-title {
+        font-size: 2.25rem;
+    }
+
+    .login-desc {
+        text-align: center;
+        line-height: 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        width: 30%;
+    }
+}
