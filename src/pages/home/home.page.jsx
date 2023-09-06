@@ -11,8 +11,6 @@ import { FormContext } from '../../context/form-context';
 function Home() {
     const { posts } = useContext(PostsContext);
 
-    console.log(posts);
-
     const { currentUser } = useContext(UserContext);
 
     const navigate = useNavigate();

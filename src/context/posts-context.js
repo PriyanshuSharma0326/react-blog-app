@@ -15,7 +15,7 @@ export const PostsContextProvider = ({ children }) => {
             setPosts(postsData);
         }
 
-        return unsubscribe;
+        unsubscribe();
     }, []);
 
     const contextValue = {
