@@ -11,8 +11,6 @@ import {
 
 import { 
     signInWithPopup,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged,
 } from 'firebase/auth';
@@ -44,26 +42,29 @@ const createUserDoc = async (user) => {
     return userDocRef;
 }
 
+// Method to Create Post Doc to collections
+const createPostDoc = async (post) => {
+    const { blogTitle, blogContent, id } = post;
+
+    const postDocRef = doc(db, 'posts', id);
+
+    const createdAt = new Date();
+
+    try {
+        await setDoc(postDocRef, {
+            id,
+            blogTitle,
+            blogContent,
+            createdAt
+        });
+    }
+    catch(err) {
+        console.log(err);
+    }
+}
+
 // Method to Sign User In with Google Popup
 const googlePopupSignIn = () => signInWithPopup(auth, provider);
-
-// Method to Sign User Up with Email and Password
-const createUserEmailPasswordMethod = async (email, password) => {
-    if(!email || !password) {
-        return;
-    }
-
-    return createUserWithEmailAndPassword(auth, email, password);
-}
-
-// Method to Sign User In with Email and Password
-const signInUserEmailPasswordMethod = async (email, password) => {
-    if(!email || !password) {
-        return;
-    }
-
-    return signInWithEmailAndPassword(auth, email, password);
-}
 
 // Method to Sign User Out
 const signOutUser = () => signOut(auth);
@@ -90,14 +91,11 @@ const addCollectionAndDocuments = async (collectionKey, objectsToAdd, field = 't
 
 // Method to Get Data from collections
 const getDataFromCollections = async () => {
-    const collectionRef = collection(db, 'categories');
+    const collectionRef = collection(db, 'posts');
+    const querySnapshot = await getDocs(collectionRef);
 
-    const q = query(collectionRef);
-
-    const querySnapshot = await getDocs(q);
-
-    const data = querySnapshot.docs.map(docSnapshot => {
-        return docSnapshot.data();
+    const data = querySnapshot.docs.map((doc) => {
+        return doc.data();
     });
 
     return data;
@@ -106,8 +104,7 @@ const getDataFromCollections = async () => {
 export {
     googlePopupSignIn,
     createUserDoc,
-    createUserEmailPasswordMethod,
-    signInUserEmailPasswordMethod,
+    createPostDoc,
     signOutUser,
     authStateChangeListener,
 

@@ -3,6 +3,7 @@ import './navbar.styles.scss';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../context/user-context';
 import { signOutUser } from '../../lib/utils/firebase.utils';
+import Button from '../button/button.component';
 
 function Navbar() {
     const navigate = useNavigate();
@@ -27,9 +28,12 @@ function Navbar() {
 
                 {!currentUser ? 
                     <Link to='/login' className="navbar-link">Login</Link> : 
-                    <h3 
-                        onClick={signOutHandler}
-                    >Logout</h3>
+
+                    <Button 
+                        buttonText='Logout' 
+                        type='button' 
+                        onClick={signOutHandler} 
+                    />
                 }
             </ul>
         </nav>

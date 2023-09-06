@@ -8,6 +8,7 @@
     box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5);
     position: fixed;
     width: 100%;
+    z-index: 10;
 
     .navbar-title {
         > .navbar-link {
@@ -24,6 +25,15 @@
 
     .navbar-links {
         display: flex;
+        align-items: center;
         gap: 2rem;
+
+        @media (max-width: 426px) {
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 426px) {
+        padding: 0 2rem;
     }
 }

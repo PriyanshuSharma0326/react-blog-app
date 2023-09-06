@@ -3,16 +3,25 @@
     padding-top: 7.5rem;
     background-color: var(--dark);
     color: var(--creme);
-    height: 100vh;
+    min-height: 100vh;
+    position: relative;
 
     .home-head {
-        // margin-top: 4.5rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
 
         .home-title {
             font-size: 1rem;
+
+            @media (max-width: 426px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        @media (max-width: 426px) {
+            flex-direction: column-reverse;
+            gap: 1.5rem;
         }
     }
 
@@ -22,5 +31,24 @@
         grid-template-columns: repeat(3, 1fr);
         row-gap: 1.5rem;
         column-gap: 1.5rem;
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 426px) {
+            margin-top: 2rem;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+    @media (max-width: 1024px) {
+        padding-bottom: 3rem;
+    }
+
+    @media (max-width: 426px) {
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-top: 6.5rem;
     }
 }

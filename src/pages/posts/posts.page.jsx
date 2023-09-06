@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './posts.styles.scss';
-import posts from '../../constants/postsData';
 import BlogCard from '../../components/blog-card/blog-card.component';
+import { PostsContext } from '../../context/posts-context';
 
 function PostsPage() {
+    const { posts } = useContext(PostsContext);
+
     return (
         <div className='posts-page-container'>
             <h1 className="page-title">Posts</h1>

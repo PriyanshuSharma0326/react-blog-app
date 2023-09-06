@@ -1,0 +1,22 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    .form-input-label {
+        color: var(--dark);
+        font-size: 1.25rem;
+    }
+
+    .form-input, .form-input-textarea {
+        font-size: 1.1rem;
+        padding: 0.5rem;
+        outline: none;
+        border: 1px solid var(--dark);
+        border-radius: 0.25rem;
+    }
+
+    .form-input-textarea {
+        resize: vertical;
+    }
+}
