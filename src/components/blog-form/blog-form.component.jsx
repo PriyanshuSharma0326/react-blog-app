@@ -5,6 +5,7 @@ import Button from '../button/button.component';
 import { v4 as uuidv4 } from 'uuid';
 import { createPostDoc } from '../../lib/utils/firebase.utils';
 import { FormContext } from '../../context/form-context';
+import { PostsContext } from '../../context/posts-context';
 
 function useOutsideAlerter(ref) {
     const { setShowForm } = useContext(FormContext);
@@ -27,6 +28,8 @@ function useOutsideAlerter(ref) {
 function BlogForm() {
     const { setShowForm } = useContext(FormContext);
 
+    const { setButtonClicked } = useContext(PostsContext);
+
     const defaultFormFields = {
         blogTitle: '',
         blogContent: ''
@@ -43,6 +46,7 @@ function BlogForm() {
         e.preventDefault();
         const post = {...formInputs, id: uuidv4()};
         await createPostDoc(post);
+        setButtonClicked(true);
         setShowForm(false);
     }
 

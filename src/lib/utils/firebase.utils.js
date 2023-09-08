@@ -4,7 +4,6 @@ import {
     getDoc,
     setDoc,
     collection,
-    writeBatch,
     getDocs,
 } from 'firebase/firestore';
 
@@ -73,21 +72,6 @@ const authStateChangeListener = (callback) => {
     onAuthStateChanged(auth, callback);
 }
 
-// Method to Add Data to collections
-const addCollectionAndDocuments = async (collectionKey, objectsToAdd, field = 'title') => {
-    const collectionRef = collection(db, collectionKey);
-
-    const batch = writeBatch(db);
-
-    objectsToAdd.forEach(object => {
-        const docRef = doc(collectionRef, object[field]);
-
-        batch.set(docRef, object);
-    });
-
-    await batch.commit();
-}
-
 // Method to Get Data from collections
 const getDataFromCollections = async () => {
     const collectionRef = collection(db, 'posts');
@@ -106,7 +90,5 @@ export {
     createPostDoc,
     signOutUser,
     authStateChangeListener,
-
-    addCollectionAndDocuments,
     getDataFromCollections,
 };

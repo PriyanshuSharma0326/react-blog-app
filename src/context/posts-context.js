@@ -9,6 +9,8 @@ export const PostsContext = createContext({
 export const PostsContextProvider = ({ children }) => {
     const [posts, setPosts] = useState([]);
 
+    const [buttonClicked, setButtonClicked] = useState(false);
+
     useEffect(()=> {
         const unsubscribe = async () => {
             const postsData = await getDataFromCollections();
@@ -18,8 +20,20 @@ export const PostsContextProvider = ({ children }) => {
         unsubscribe();
     }, []);
 
+    useEffect(() => {
+        const getPosts = async () => {
+            const postsData = await getDataFromCollections();
+            setPosts(postsData);
+        }
+
+        if(buttonClicked) {
+            getPosts();
+            setButtonClicked(false);
+        }
+    }, [buttonClicked]);
+
     const contextValue = {
-        posts, setPosts
+        posts, setPosts, setButtonClicked
     };
 
     return (
